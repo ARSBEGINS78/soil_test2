@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+   <style>
+div{
+   transition: all linear 0.5s;
+  background-color: rgb(144, 223, 174);
+  height: 100px;
+  width: 100%;
+  position: relative;
+  top:0;
+  left:0;
+}
+img{
+   transition: all linear 0.5s;
+  background-color: rgb(144, 223, 174);
+  height: 120px;
+  width: 20%;
+  position: absolute;
+  top: 0;
+  left: 400px;
+}
+
+.ng-show {
+  height: 0;
+  width: 0;
+  background-color: transparent;
+  top:-200px;
+  left: 200px;
+}
+@media only screen and(max-width: 600px){
+div{
+   transition: all linear 0.5s;
+  background-color: rgb(144, 223, 174);
+  height: 100px;
+  width: 100%;
+  position: relative;
+  top:0;
+  left:0;
+}
+img{
+   transition: all linear 0.5s;
+  background-color: rgb(144, 223, 174);
+  height: 10px;
+  width: 20%;
+  position: absolute;
+  top: 0;
+  left: 40%;
+}
+}
+</style>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width-device-width,initial-scale=1.0">
+<title>Soil Testing</title>
+</head>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+<body ng-app="">
+Nutrients name is:
+<select ng-model="Nutr">
+  <option value="PH">PH
+  <option value="EC">Electrical Conductivity
+  <option value="Oc">Organic Carbon
+  <option value="phosphorous">Phosphorous
+  <option value="Nitrogen">nitrogen
+  <option value="potassium">potassium      
+</select>
+<hr>
+<div ng-switch="Nutr">
+  <div ng-switch-when="PH">
+     <h1>PH of soil</h1>
+     <p>Give the level of PH only</p>
+  </div>
+  <div ng-switch-when="EC">
+     <h1>Electrical Conductivity of Soil</h1>
+     <p>Give the level of EC only</p>
+  </div>
+  <div ng-switch-when="Oc">
+     <h1>Organic carbon of soil</h1>
+     <p>Give the level of Organic Carbon only</p>
+  </div>
+  <div ng-switch-when="Phosphorous">
+     <h1>Phosphorous of soil</h1>
+     <p>Give the level of Phosphorous only</p>
+  </div>
+  <div ng-switch-when="Nitrogen">
+     <h1>Nitrogen of soil</h1>
+     <p>Give the level of Nitrogen only</p>
+  </div>
+  <div ng-switch-when="potassium">
+     <h1>Potassium of soil</h1>
+     <p>Give the level of Potassium only</p>
+  </div>
+  <div ng-switch-default>
+     <h1>Switch</h1>
+     <p>Select topic from the dropdown, to switch the content of this DIV.</p>
+  </div>
+</div>
+<hr>
+<h1>select soil ph:</h1>
+<select ng-model="PH">
+  <option value="low">low
+  <option value="medium">medium
+  <option value="high">high
+</select>
+<div ng-switch="PH">
+  <div ng-switch-when="low">
+     <h1>soil ph is low</h1>
+     <p>put CaCO3 in bulk</p>
+  </div>
+  <div ng-switch-when="medium">
+     <h1>soil ph is medium</h1>
+     <p>put CaCO3 100 kg/acre</p>
+  </div>
+  <div ng-switch-when="high">
+     <h1>soil ph is high</h1>
+     <p>don't put CaCO3</p>
+  </div>
+    <div ng-show="nitrogen" ><img src="caco3.jpeg" alt=""></div>
+
+<script>
+var app = angular.module("", ['ngAnimate']);
+</script>
+</div>
+</hr>
+<hr>
+<h1>select electrical conductivity</h1>
+<select ng-model="EC">
+  <option value="low">low
+  <option value="medium">medium
+  <option value="high">high
+</select>
+<div ng-switch="EC">
+  <div ng-switch-when="low">
+     <h1>Low EC,soil Electrical Conductivity is low</h1>
+     <p>soil is not well</p>
+  </div>
+  <div ng-switch-when="medium">
+     <h1>Medium EC,soil Electrical Conductivity is medium</h1>
+     <p>soil is slightly well</p>
+  </div>
+  <div ng-switch-when="high">
+     <h1>High EC,soil Electrical Conductivity is high</h1>
+     <p>soil is very well</p>
+  </div>
+  <div ng-show="nitrogen" ><img src="soil.jpeg" alt=""></div>
+
+<script>
+var app = angular.module("", ['ngAnimate']);
+</script>
+</div>
+<hr>
+<hr>
+<h1>select organic carbon:</h1>
+<select ng-model="OC">
+  <option value="low">low
+  <option value="medium">medium
+  <option value="high">high
+</select>
+<div ng-switch="OC">
+  <div ng-switch-when="low">
+     <h1>Low OC,soil Organic Carbon is low</h1>
+     <p>soil is not well but some fertilizer is required</p>
+  </div>
+  <div ng-switch-when="medium">
+     <h1>Medium OC,soil Organic Carbon is medium</h1>
+     <p>soil is slightly well little fertilizer is required</p>
+  </div>
+  <div ng-switch-when="high">
+     <h1>High OC,soil Organic Carbon is high</h1>
+     <p>NO, fertilizer is required</p>
+  </div>
+<div ng-show="nitrogen" ><img src="manure.jpeg" alt=""></div>
+
+<script>
+var app = angular.module("", ['ngAnimate']);
+</script>
+</hr>
+</div>
+<hr>
+<h1>select nitrogen level:</h1>
+<select ng-model="nitrogen">
+  <option value="low">low
+  <option value="medium">medium
+  <option value="high">high
+</select>
+<div ng-switch="nitrogen">
+  <div ng-switch-when="low">
+     <h1>Low Nitrogen,level of nitrogen in soil is low</h1>
+     <p>bulk nitrogen should be given in soil</p>
+  </div>
+  <div ng-switch-when="medium">
+     <h1>Medium Nitrogen,level of nitrogen in soil is medium</h1>
+     <p>some of the nitrogen should be given in soil</p>
+  </div>
+  <div ng-switch-when="high">
+     <h1>High Nitrogen,level of nitrogen in soil is high</h1>
+     <p>no nitrogen should be given in soil</p>
+  </div>
+  <div ng-show="nitrogen" ><img src="nitrogen_fix.jpeg" alt=""></div>
+
+<script>
+var app = angular.module("", ['ngAnimate']);
+</script>
+</div>
+</hr>
+<hr>
+<h1>select potassium level:</h1>
+<select ng-model="potassium">
+  <option value="low">low
+  <option value="medium">medium
+  <option value="high">high
+</select>
+<div id="d" ng-switch="potassium">
+  <div ng-switch-when="low">
+     <h1>Low Potassium,level of potassium in soil is low</h1>
+     <p>bulk potassium should be given in soil</p>
+  </div>
+  <div ng-switch-when="medium">
+     <h1>Medium Potassium,level of potassium in in soil is medium</h1>
+     <p>some potassium should be given in soil</p>
+  </div>
+  <div ng-switch-when="high">
+     <h1>High potassium,level of potassium in soil is high</h1>
+     <p>no potassium should be given in soil</p>
+  </div>
+  <div id="e" ng-show="potassium" ><img src="potash.jpeg" alt=""></div>
+
+<script>
+var app = angular.module("", ['ngAnimate']);
+</script>
+</div>
+<hr>
+</body>
+</html>   
+
+
+
